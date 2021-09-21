@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User After Login</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+<style>
+
+    * {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: arial, sans-serif;
+    }
+   
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background: #23242b;
+        color: #fff;
+    }
+    .u-name {
+        font-size: 20px;
+        padding-left: 17px;
+    }
+    .u-name b {
+        color: #127b8e;
+    }
+    .header i {
+        font-size: 30px;
+        cursor: pointer;
+        color: #fff;
+    }
+    .header i:hover {
+        color: #127b8e;
+    }
+    .user-p {
+        text-align: center;
+        padding-left: 10px;
+        padding-top: 25px;
+    }
+    .user-p img {
+        width: 100px;
+        border-radius: 50%;
+    }
+    .user-p h4 {
+        color: #ccc;
+        padding: 5px 0;
+
+    }
+    .side-bar {
+        width: 250px;
+        background: #262931;
+        min-height: 100vh;
+        transition: 500ms width;
+    }
+    .body {
+        display: flex;
+        background-image: linear-gradient(#ffd89b,#19547b);
+    }
+    .section-1 {
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .section-1 h1 {
+        color: #fff;
+        font-size: 60px;
+    }
+    .section-1 p {
+        color: #127b8e;
+        font-size: 20px;
+        background: #fff;
+        padding: 7px;
+        border-radius: 5px;
+    }
+    .side-bar ul {
+        margin-top: 20px;
+        list-style: none;
+    }
+    .side-bar ul li {
+        font-size: 16px;
+        padding: 15px 0px;
+        padding-left: 20px;
+        transition: 500ms background;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .side-bar ul li:hover {
+        background: #127b8e;
+    }
+    .side-bar ul li a {
+        text-decoration: none;
+        color: #eee;
+        cursor: pointer;
+        letter-spacing: 1px;
+    }
+    .side-bar ul li a i {
+        display: inline-block;
+        padding-right: 10px;
+        font-size: 23px;
+    }
+    #navbtn {
+        display: inline-block;
+        margin-left: 70px;
+        font-size: 20px;
+        transition: 500ms color;
+    }
+    #checkbox {
+        display: none;
+    }
+    #checkbox:checked ~ .body .side-bar {
+        width: 60px;
+    }
+    #checkbox:checked ~ .body .side-bar .user-p{
+        visibility: hidden;
+    }
+    #checkbox:checked ~ .body .side-bar a span{
+        display: none;
+    } 
+    
+    .content{
+       
+       
+       margin-top: 60px;
+       margin-left: 250px;
+       margin-bottom: 60px;
+       background-position:center;
+      background-size:cover;
+      font-family:sans-serif;
+    }
+   
+    .regform{
+       width:800px;
+       background-color:rgb(0,0,0,0.6);
+       margin:auto;
+       color:#FFFFFF;
+       padding:10px 0px 10px 0px;
+       text-align:center;
+       border-radius:15px 15px 0px 0px ;
+    }
+
+    .main{
+      background-color:rgb(0,0,0,0.5);
+      width:800px;
+      margin:auto;
+    }
+     
+    form{
+     padding:10px;
+      
+    } 
+     
+    #name{
+        width:100%;
+       height:100px;
+       
+    }
+
+    .name{
+      margin-left:25px;
+      margin-top:30px;
+      width: 125px;
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+   .firstname{
+        position: relative;
+        left:200px;
+        top:-37px;
+        line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 16px;
+          
+    }
+
+   .lastname{
+       position: relative;
+       left:417px;
+       top:-80px;
+       line-height: 40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 16px;
+        color:#555;       
+    }
+
+    .firstlabel{
+      position:relative;
+      color:#E5E5E5;    
+      text-transform: capitalize;
+      font-size: 14px;
+      left:203px;
+      top:-45px;
+    }
+
+   .lastlabel{
+      position:relative;
+      color:#E5E5E5;
+      text-transform:capitalize;
+      font-size:14px;
+      left:492px;
+      top:-76px;
+    }
+
+   .company{
+        position:relative;
+        left:200px;
+        top:-37px;
+        line-height: 40px;
+        width:480px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 16px;
+        color: #555;  
+    }
+    
+    .option{
+        position:relative;
+        left:200px;
+        top:-37px;
+        line-height: 40px;
+        width:532px;
+        height:40px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 16px;
+        color: #555; 
+        outline:none;
+        overflow:hidden;
+    }
+
+    option option{
+      font-size:20px;
+    }
+
+    .form-control{
+        position:relative;
+        left:200px;
+        top:-37px;
+        line-height: 40px;
+        width:480px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 16px;
+        color: #555;  
+    }
+
+    .file{
+        position:relative;
+        left:200px;
+        top:-37px;
+        line-height: 40px;
+        width:480px;
+        border-radius: 6px;
+        padding: 0 22px;
+        font-size: 16px;
+        color: #555;  
+    }
+
+      #coustomer{
+      margin-left:25px;
+       color:white;
+       font-size:18px;
+       
+    }
+
+    .radio{
+      display:inline-block;
+      padding-right:70px;
+      font-size:25px;
+      margin-left:25px;
+      margin-top:15px;
+      color:white;
+    }
+    .radio input{
+         width:20px;
+        height:20px;
+        border-radius:50%;
+        cursor:pointer;
+        outline:none;
+    }
+  
+
+    button{
+        background-color:#3BAF9F;
+        display:block;
+        margin:20px 0px 0px 20px;
+        text-align:center;
+        border-radius:12px;
+        border:2px solid #366473;
+        padding:14px 110px;
+        outline:none;
+        color:white;
+        cursor:pointer;
+        transition:0.25px;
+    } 
+    button:hover{
+        background-color:#5390F5;
+    } 
+    
+ 
+</style>
+<body>
+	<input type="checkbox" id="checkbox">
+	<header class="header">
+		<h2 class="u-name"><span class="lab la-accusoft"></span><b>  <span>ONION</span></b>
+			<label for="checkbox">
+				<i id="navbtn" class="fa fa-bars" aria-hidden="true"></i>
+			</label>
+		</h2>
+		<i class="fa fa-user" aria-hidden="true">  {{uname}}</i>
+	</header>
+	<div class="body">
+		<nav class="side-bar">
+			<div class="user-p">
+				<img src="{{ url_for('static' , filename='images/userlogo.jpg')}}">
+				<h4>{{uname}}</h4>
+			</div>
+			<ul>
+				<li>
+					<a href="/userafterlogin">
+						<i class="fa fa-desktop" aria-hidden="true"></i>
+						<span>Dashboard</span>
+					</a>
+				</li>
+				<li>
+					<a href="/userafterlogin">
+						<i class="las la-users" aria-hidden="true"></i>
+						<span>User Home</span>
+					</a>
+				</li>
+                <li>
+					<a href="/viewnews">
+						<i class="las la-street-view" aria-hidden="true"></i>
+						<span>View News</span>
+					</a>
+				</li>
+				<li>
+					<a href="/addnews">
+						<i class="las la-user-plus" aria-hidden="true"></i>
+						<span>Add News</span>
+					</a>
+				</li>
+				<li>
+					<a href="/searchnews">
+						<i class="las la-search" aria-hidden="true"></i>
+						<span>Search News</span>
+					</a>
+				</li>
+				<li>
+					<a href="/deletenews">
+						<i class="las la-trash-alt" aria-hidden="true"></i>
+						<span>Delete News</span>
+					</a>
+				</li>
+                <li>
+					<a href="/viewuserprofile">
+						<i class="las la-eye" aria-hidden="true"></i>
+						<span>View Profile</span>
+					</a>
+				</li>
+                <li>
+					<a href="/updateuserprofile">
+						<i class="las la-edit" aria-hidden="true"></i>
+						<span>Update Profile</span>
+					</a>
+				</li>
+				<li>
+					<a href="/logout">
+						<i class="las la-sign-out-alt" aria-hidden="true"></i>
+						<span>Logout</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+            <div class="content">
+                <div class="regform">
+                    <h1>UPDATE PROFILE</h1>
+                </div>
+                <div class="main">
+                    <form action="/updateuserprofile" method="POST" enctype="multipart/form-data">
+                        <div id="name">
+                            <h2 class="name"> USER NAME</h2>
+                            <input class="company" type="text" name="user" value= "{{ userdata['username'] }}" readonly ><br><br>
+                            <label class="firstlabel">Your User ID</label>                       
+                        </div>
+                        
+
+                        <h2 class="name">USER EMAIL</h2>
+                        <input class="company" type="text" name="email" value="{{ userdata['useremail'] }}" readonly><br><br>
+                        <label class="firstlabel">Your Email ID</label>  
+                        
+                        <h2 class="name">USER MOBILE NUMBER</h2>
+                        <input class="company" type="text" name="mobile" value="{{ userdata['usermobile'] }}" ><br><br>
+                        <label class="firstlabel">Your Mobile Number</label> 
+                        
+                        <h2 class="name">USER PASSWORD</h2>
+                        <input class="company" type="text" name="pass" value="{{ userdata['userpass'] }}" ><br><br>
+                        <label class="firstlabel">Your Password</label>  
+
+                       
+                        
+                        <button type="submit"><h3>UPDATE PROFILE</h3></button>
+                
+                
+                    </form>
+                </div>
+            </div>
+        
+
+
+		
+	</div>
+
+</body>
+</html>

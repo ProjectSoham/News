@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Search News</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    </head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+           background: linear-gradient(to top,#5433ff,#20bdff,#a5fecb,#0052d4,#4364f7,#6fb1fc,#00416a,#799f0c,#ffe000);
+        }
+
+        .wrap{
+            width: 100%;
+            overflow: auto;
+            font-family: arial;
+            line-height: 60px;
+            background: linear-gradient(#333366,red);
+            -webkit-background: linear-gradient(#333366,red);
+            -moz-background: linear-gradient(#333366,red);
+
+        }
+
+        header{
+            font-size: 2em;
+            float: left;
+            margin-left: 3px;
+        }
+        header a{
+            text-decoration: none;
+            color: #fff;
+            margin-left: 10px;
+        }
+        nav{
+            margin-left: 50px;
+            float: left;
+            font-size: 15px;
+        }
+        nav a{
+            width: 100px;
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+            line-height: normal;
+            margin-left: 4px;
+        }
+        nav a:hover{
+            color: #336600;
+        }
+
+        .container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: .5px;
+            transform: translate(-50%,-50%);
+            margin-top: 5px;    
+            
+        }
+
+        .title{
+            color: #fff;
+            text-transform: capitalize;
+            margin-left: 70px;
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 30px;
+            font-family: sans-serif;
+            text-shadow: 0px 5px 5px rgba(0,0,0,0.4);
+        }
+
+        .form-group{
+            background-color: #fff;
+            display: flex;
+            width: 800px;
+            height: 50px;
+            padding: 10px;
+            border-radius: 30px;
+            box-shadow: 0px 2px 4px 0px rgba(12,18,18,0.4);
+            margin-left: 100px;
+        }
+
+        .dropdown{
+            position: relative;
+            width: 150px;
+            padding-left: 5px;
+            color: #3a3a3a;
+            border-right: 2px solid #f57168;
+            
+        }
+
+        .default-option{
+            padding: 8px 30px;
+        }
+
+        .dropdown-list ul{
+            list-style: none;
+            background-color: #fff;
+            color: #696969;
+            position: relative;
+            top: 20px;
+            left: 0px;
+            width: 150px;
+            border-radius: 5px;
+            display:none;
+        }
+
+        
+        .dropdown-list ul li{
+            padding: 10px 10px 10px 20px;
+        }
+
+        .dropdown-list ul li i{
+            margin-right: 5px;
+        }
+
+        .dropdown::before{
+            content: "";
+            border-width: 6px 6px 0 6px;
+            border-style: solid;
+            border-color: #1d1d1d transparent;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+        }
+
+        .dropdown-list ul li::before{
+            content: "";
+            border-width: 0px 8px 8px 8px;
+            border-style: solid;
+            border-color:#fff transparent;
+            position: absolute;
+            bottom: 100%;
+            right: 20px;
+        }
+
+        .dropdown-list ul li:hover{
+            background-color: #fff;
+            color: #f44336;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .search{
+            width: 600px;
+            height: 100%;
+        }
+
+        .option{
+            width: 100%;
+            height: 100%;
+            border: 0;
+            padding: 0 10px;
+            margin-left: 50px;
+            color: blue;
+            font-size: 17px;
+        }
+
+        .option option{
+            font-size: 15px;
+            color: brown;
+        }
+
+        .btn{
+            background-color: #fff;
+            width: 50px;
+            height: 100%;
+            border: 0;
+            
+        }
+    
+
+        .btn .la-search{
+            font-size: 22px;
+            color: blueviolet;
+
+        }
+
+        .btn .la-search:hover{
+            font-size: 24px;
+            color: #e01f10;
+        }
+
+        .main{
+            margin-top: 450px;
+        }
+        .row{
+        margin-top: 60px;
+        margin-left: 100px;
+        margin-bottom: 80px;
+        background-position:center;
+        background-size:cover;
+        font-family:sans-serif;
+        }
+
+
+        .content{
+        width:800px;
+        background-color:rgb(0,0,0,0.6);
+        margin:auto;
+        color:#FFFFFF;
+        padding:10px 0px 10px 0px;
+        text-align:center;
+        border-radius:15px 15px 0px 0px ;
+        }     
+
+        
+
+
+    </style>
+
+    <body>
+
+        <div class="wrap">
+            <header>
+                <h2><span class="lab la-accusoft"></span> <span>ONION</span></h2>
+            </header>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/adminlogin">Admin Login</a>
+                <a href="/userreg">Registration</a>
+                <a href="/userlogin">Login</a>
+                <a href="/about">About Us</a>
+                <a href="/contact">Contact Us</a>
+                <a href="#"><i class="lab la-facebook"></i></a>
+                <a href="#"><i class="lab la-twitter"></i></a>
+                <a href="#"><i class="lab la-instagram"></i></a>
+                <a href="#"><i class="lab la-youtube"></i></a>
+
+            </nav>
+           
+        </div>
+
+
+        <div class="container">
+            <h1 class="title">What News are You searching for?</h1>
+            <form action="/homesearchnews" method="POST">
+                <div class="form-group">
+                    <div class="dropdown">
+                        <div class="default-option">
+                            <div class="dropdown-list">Category</div>
+                        </div>
+                    </div>
+
+                    <div class="search">
+                        <select class="option" name="cata" required>
+                            <option disabled="disabled" selected="selected">Search For Different Types Of News</option>
+                            <option>Sports</option>
+                            <option>Politics</option>
+                            <option>Current Affairs</option>
+                            <option>Breaking News</option>
+                        </select> 
+                    </div>
+
+                    <button class="btn" type="submit"><i class="las la-search"></i></button>
+                </div>
+            </form>
+        </div>
+        <br>
+        
+
+        
+        <div class="main">
+            <div class="row">
+                    
+                {% if show_results %}
+                <div align = "center">
+                    {% for uobj in userdata %}
+                    <div class="content">
+                        
+
+                        Name: {{ uobj['username'] }}<br><br>
+                        News ID : {{ uobj['usernews'] }}<br> <br>
+                    
+                        Category:{{ uobj['usercata'] }}<br><br>
+                            
+                        Date : {{ uobj['userdob'] }}<br><br>
+                        <img src={{uobj['image'] }} width="70%" height="70%"><br><br>
+                            
+                        {{ uobj['userdes'] }}<br><br>  
+                    
+                    </div><br><br>
+                    {% endfor %}
+                        
+                </div>
+                {% endif %}
+                
+            
+                
+            </div> 
+        </div>
+
+    </body>
+ 
+</html>

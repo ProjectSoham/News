@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <title>Sign-up Form</title>
+    
+  </head>
+   <style>
+        :root{
+            --myfont:'Mulish',sans-serif;
+            --my-btn-font:'Montserrat',sans-serif;
+            --lg-lightcolor: linear-gradient(to left, rgba(116,235,213,0.6), rgba(159,172,230,0.6));
+            --lg-color: linear-gradient(to left,#74ebd5,#9face6);
+        }
+        body, input {
+         
+            font-family: "Poppins", sans-serif;
+        }
+        .wrap{
+            width: 100%;
+            overflow: auto;
+            font-family: arial;
+            line-height: 60px;
+            background: linear-gradient(#333366,red);
+            -webkit-background: linear-gradient(#333366,red);
+            -moz-background: linear-gradient(#333366,red);
+
+        }
+
+        header{
+            font-size: 2em;
+            float: left;
+        }
+        header a{
+            text-decoration: none;
+            color: #fff;
+            margin-left: 10px;
+        }
+        nav{
+            margin-left: 50px;
+            float: left;
+            font-size: 15px;
+        }
+        nav a{
+            width: 100px;
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            text-align: center;
+        }
+        nav a:hover{
+            color: #336600;
+        }
+
+        h1{
+          background: var(--lg-color);
+            padding: 30px 0;
+          color: #222;
+            font-family: var(--my-btn-font);
+            font-size: 24px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+
+        form{
+            padding: 40px;
+        }
+
+        .form-group{
+            margin-bottom: 20px;
+        }
+
+        .form-group label{
+            display: inline-block;
+            margin-bottom: 2px;
+        }
+   
+    </style>
+  <body>
+
+    <div class="wrap">
+        <header>
+            <h2><span class="lab la-accusoft"></span> <span>Onion</span></h2>
+        </header>
+        <nav>
+            <a href="/">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/adminlogin">Admin Login</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/userreg">Registration</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/userlogin">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/about">About Us</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/contact">Contact Us</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+            
+            <a href="#"><i class="lab la-facebook"></i></a>
+            <a href="#"><i class="lab la-twitter"></i></a>
+            <a href="#"><i class="lab la-instagram"></i></a>
+            <a href="#"><i class="lab la-youtube"></i></a>
+
+        </nav>
+       
+    </div>
+
+
+    <div class="container"><br/>
+      <h1 class="text-success text-center">Create Your Account</h1><br/>
+
+      <div align = "center">
+        <h3 style="color:red">
+        <b> {{ msg }} </b>
+        </h3>
+      </div></br>
+
+      <div class="col-lg-8 m-auto d-block">
+        <form action="/userreg" onsubmit="return validation()" class="bg-light" method="POST">
+          <div class="form-group">
+            <label>Username : </label>
+            <input type="text" name="user" class="form-control" id="user" placeholder="Enter Your User Name" required>
+            <span id="username" class="text-danger font-weight-bold"></span>
+          </div>
+
+          <div class="form-group">
+            <label>Email : </label>
+            <input type="text" name="email" class="form-control" id="email" placeholder="Enter Your Email Id" required>
+            <span id="emailids" class="text-danger font-weight-bold"></span>
+          </div>
+
+          <div class="form-group">
+            <label>Mobile Number : </label>
+            <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Enter Your Mobile Number" required>
+            <span id="mobileno" class="text-danger font-weight-bold"></span>
+          </div>
+
+          <div class="form-group">
+            <label>Password : </label>
+            <input type="password" name="pass" class="form-control" id="pass" placeholder="Enter Your Password" required>
+            <span id="passwords" class="text-danger font-weight-bold"></span>
+          </div>
+
+          <div class="form-group">
+            <label>Confirm Password : </label>
+            <input type="password" name="conpass" class="form-control" id="conpass" placeholder="Enter Your Confirm Password" required>
+            <span id="confirmpass" class="text-danger font-weight-bold"></span>
+          </div>
+
+          <input type="submit" name="submit" value="Resister" class="btn btn-success">
+        </form>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+
+    function validation() {
+      var user = document.getElementById('user').value;
+      var email = document.getElementById('email').value;
+      var mobile = document.getElementById('mobile').value;
+      var pass = document.getElementById('pass').value;
+      var conpass = document.getElementById('conpass').value;
+
+      if(user == ""){
+        document.getElementById('username').innerHTML = "**Please fill the username field";
+        return false;
+      }
+      if((user.length <= 2) || (user.length > 20)){
+        document.getElementById('username').innerHTML = "**User Length must be between 2 and 20";
+        return flase;
+      }
+      if(!isNaN(user)){
+        document.getElementById('username').innerHTML = "Only Characters are allowed";
+      }
+
+
+      if(email == ""){
+        document.getElementById('emailids').innerHTML = "**Please fill the Email Id field";
+        return false;
+      }
+      if(email.indexOf('@') <= 0){
+        document.getElementById('emailids').innerHTML = "**@ Invalid Position";
+        return false;
+      }
+      if((email.charAt(email.length-4)!='.') && (email.charAt(email.length-3)!='.')){
+        document.getElementById('emailids').innerHTML = "**. Invalid Position";
+        return false;
+
+      }
+
+      if(mobile == ""){
+        document.getElementById('mobileno').innerHTML = "**Please fill the Mobile Number field";
+        return false;
+      }
+      if(isNaN(mobile)){
+        document.getElementById('mobileno').innerHTML="**Users must write digits only not characters";
+        return false;
+      }
+      if(mobile.length!=10){
+        document.getElementById('mobileno').innerHTML="**Mobile Number must be 10 digits only";
+        return flase;
+      }
+
+      if(pass == ""){
+        document.getElementById('passwords').innerHTML = "**Please fill the Password field";
+        return false;
+      }
+      if((pass.length <= 1) || (pass.length > 20)){
+        document.getElementById('passwords').innerHTML = "**Password Length must be between 1 and 20";
+        return flase;
+      }
+
+      if(pass!=conpass){
+        document.getElementById('confirmpass').innerHTML="**Password are not matching";
+        return false;
+      }
+
+      if(conpass == ""){
+        document.getElementById('confirmpass').innerHTML = "**Please fill the Confirm Password field";
+        return false;
+      }
+       
+    }
+    </script>
+  </body>
+</html>
+

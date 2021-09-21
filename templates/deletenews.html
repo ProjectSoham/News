@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User After Login</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+<style>
+
+    * {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: arial, sans-serif;
+    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background: #23242b;
+        color: #fff;
+    }
+    .u-name {
+        font-size: 20px;
+        padding-left: 17px;
+    }
+    .u-name b {
+        color: #127b8e;
+    }
+    .header i {
+        font-size: 30px;
+        cursor: pointer;
+        color: #fff;
+    }
+    .header i:hover {
+        color: #127b8e;
+    }
+    .user-p {
+        text-align: center;
+        padding-left: 10px;
+        padding-top: 25px;
+    }
+    .user-p img {
+        width: 100px;
+        border-radius: 50%;
+    }
+    .user-p h4 {
+        color: #ccc;
+        padding: 5px 0;
+
+    }
+    .side-bar {
+        width: 250px;
+        background: #262931;
+        min-height: 100vh;
+        transition: 500ms width;
+    }
+    .body {
+        display: flex;
+        background-image: url("{{url_for('static',filename='images/bg.jpg')}}");
+    }
+    .section-1 {
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .section-1 h1 {
+        color: #fff;
+        font-size: 60px;
+    }
+    .section-1 p {
+        color: #127b8e;
+        font-size: 20px;
+        background: #fff;
+        padding: 7px;
+        border-radius: 5px;
+    }
+    .side-bar ul {
+        margin-top: 20px;
+        list-style: none;
+    }
+    .side-bar ul li {
+        font-size: 16px;
+        padding: 15px 0px;
+        padding-left: 20px;
+        transition: 500ms background;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .side-bar ul li:hover {
+        background: #127b8e;
+    }
+    .side-bar ul li a {
+        text-decoration: none;
+        color: #eee;
+        cursor: pointer;
+        letter-spacing: 1px;
+    }
+    .side-bar ul li a i {
+        display: inline-block;
+        padding-right: 10px;
+        font-size: 23px;
+    }
+    #navbtn {
+        display: inline-block;
+        margin-left: 70px;
+        font-size: 20px;
+        transition: 500ms color;
+    }
+    #checkbox {
+        display: none;
+    }
+    #checkbox:checked ~ .body .side-bar {
+        width: 60px;
+    }
+    #checkbox:checked ~ .body .side-bar .user-p{
+        visibility: hidden;
+    }
+    #checkbox:checked ~ .body .side-bar a span{
+        display: none;
+    }  
+   
+    .main{
+	margin-left:650px;
+    margin-top:20;
+	padding: 0;
+	font-family: sans-serif;
+    }
+
+    .login-page{
+        background-size: cover;
+        height: 100vh;
+        position: relative;
+        margin-right: 40px;
+    }
+    .login-page:after{
+        content: '';
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        z-index: 1;
+    }
+    .login-page .box{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        z-index: 2;
+    }
+
+    .login-page .box .form-head h2{
+    text-align: center;
+    margin:10px 0px 20px;
+    color: black;
+    }
+
+    .login-page .box .form-body{
+    display: flex;
+    flex-direction: column;
+    }
+    .login-page .box .form-body input,.login-page .box .form-body select{
+    height: 40px;
+    margin-bottom: 20px;
+    border:1px solid blueviolet;
+    width: 100%;
+    background-color: transparent;
+    border-radius: 20px;
+    text-align: center;
+    color:rebeccapurple;
+    transition:box-shadow .5s ease;
+    }
+    .login-page .box .form-body input:focus,.login-page .box .form-body select:focus{
+        box-shadow: 0px 0px 10px black;
+    }
+    .login-page .box .form-body input::placeholder,.login-page .box .form-body select::placeholder{
+        color:blue;
+        text-align: center;
+    }
+    .login-page .box .form-body select option{
+        color: blue;
+    }
+    .login-page .box .form-footer {
+        text-align: center;
+
+    }
+    .login-page .box .form-footer button{
+
+        height: 40px;
+        border-radius: 20px;
+        padding: 0px 50px;
+        color:#ffffff;
+        background-color: #f44336;
+        border:none;
+        cursor: pointer;
+        transition:box-shadow .5s ease;
+    }
+    .login-page .box .form-footer button:hover{
+        box-shadow: 0px 0px 10px black;
+    }
+</style>
+<body>
+	<input type="checkbox" id="checkbox">
+	<header class="header">
+		<h2 class="u-name"><span class="lab la-accusoft"></span><b>  <span>ONION</span></b>
+			<label for="checkbox">
+				<i id="navbtn" class="fa fa-bars" aria-hidden="true"></i>
+			</label>
+		</h2>
+		<i class="fa fa-user" aria-hidden="true">  {{uname}}</i>
+	</header>
+	<div class="body">
+		<nav class="side-bar">
+			<div class="user-p">
+				<img src="{{ url_for('static' , filename='images/userlogo.jpg')}}">
+				<h4>{{uname}}</h4>
+			</div>
+			<ul>
+				<li>
+					<a href="/userafterlogin">
+						<i class="fa fa-desktop" aria-hidden="true"></i>
+						<span>Dashboard</span>
+					</a>
+				</li>
+				<li>
+					<a href="/userafterlogin">
+						<i class="las la-users" aria-hidden="true"></i>
+						<span>User Home</span>
+					</a>
+				</li>
+                <li>
+					<a href="/viewnews">
+						<i class="las la-street-view" aria-hidden="true"></i>
+						<span>View News</span>
+					</a>
+				</li>
+				<li>
+					<a href="/addnews">
+						<i class="las la-user-plus" aria-hidden="true"></i>
+						<span>Add News</span>
+					</a>
+				</li>
+				<li>
+					<a href="/searchnews">
+						<i class="las la-search" aria-hidden="true"></i>
+						<span>Search News</span>
+					</a>
+				</li>
+				<li>
+					<a href="/deletenews">
+						<i class="las la-trash-alt" aria-hidden="true"></i>
+						<span>Delete News</span>
+					</a>
+				</li>
+                <li>
+					<a href="/viewuserprofile">
+						<i class="las la-eye" aria-hidden="true"></i>
+						<span>View Profile</span>
+					</a>
+				</li>
+                <li>
+					<a href="/updateuserprofile">
+						<i class="las la-edit" aria-hidden="true"></i>
+						<span>Update Profile</span>
+					</a>
+				</li>
+				<li>
+					<a href="/logout">
+						<i class="las la-sign-out-alt" aria-hidden="true"></i>
+						<span>Logout</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+         
+        <div class="main">
+            <section class="login-page">
+                <form action="/deletenews" method="POST">
+                     <div class="box">
+                            <div class="form-head">
+                                <h2>DELETE NEWS</h2>
+                            </div>
+    
+                            <div align = "center">
+                                <h3 style="color:red">
+                                <b> {{ msg }} </b>
+                                </h3>
+                            </div>
+    
+                            <div class="form-body">
+                                <!--input type="text" name="news" placeholder="Enter Your News Id" /--->
+                                <select class="option" name="cata">
+                                    <option disabled="disabled" selected="selected">    --Choose category--</option>
+                                    <option>Sports</option>
+                                    <option>Politics</option>
+                                    <option>Current Affairs</option>
+                                    <option>Breaking News</option>
+                                </select>    
+                            </div>
+                            <div class="form-footer">
+                                <button type="submit">Delete</button>
+                            </div>
+                     </div>
+                </form>
+           </section>
+
+        </div>
+        
+
+        	
+	</div>
+
+</body>
+</html>

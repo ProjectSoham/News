@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <style>
+          * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: arial, sans-serif;
+        }
+
+        form{
+          padding:10px; 
+        } 
+
+        body{
+            background: url("{{ url_for('static',filename='images/change.jpeg') }}");
+        }
+
+        .content{
+       
+        margin-top: 60px;
+        margin-left: 100px;
+        margin-bottom: 80px;
+        background-position:center;
+        background-size:cover;
+        font-family:sans-serif;
+       }
+
+        .regform{
+        width:800px;
+        background-color:rgba(52, 175, 41, 0.671);
+        margin:auto;
+        color:#FFFFFF;
+        padding:10px 0px 10px 0px;
+        text-align:center;
+        border-radius:15px 15px 0px 0px ;
+        }
+
+        .main{
+        background-color:rgb(0,0,0,0.5);
+        width:800px;
+        margin:auto;
+       }
+
+
+
+        #name{
+        width:100%;
+       height:100px;
+       
+        }
+
+        .name{
+        margin-left:25px;
+        margin-top:30px;
+        width: 125px;
+        color: white;
+        font-size: 18px;
+        font-weight: 700;
+        }
+
+        .firstlabel{
+        position:relative;
+        color:#E5E5E5;    
+        text-transform: capitalize;
+        font-size: 14px;
+        left:203px;
+        top:-45px;
+        }
+
+        .company{
+            position:relative;
+            left:200px;
+            top:-37px;
+            line-height: 40px;
+            width:480px;
+            border-radius: 6px;
+            padding: 0 22px;
+            font-size: 16px;
+            color: #555;  
+        }
+
+        button{
+            background-color:#3BAF9F;
+            display:block;
+            margin:20px 0px 0px 20px;
+            text-align:center;
+            border-radius:12px;
+            border:2px solid #366473;
+            padding:14px 110px;
+            outline:none;
+            color:white;
+            cursor:pointer;
+            transition:0.25px;
+        } 
+        button:hover{
+            background-color:#5390F5;
+        } 
+    </style>
+    <body>
+        <div class="content">
+            <div class="regform">
+                <h1>CHANGE YOUR PASSWORD</h1>
+            </div>
+            <div class="main">
+                <form action="/change" method="POST"  onsubmit="return validation()" enctype="multipart/form-data">
+                
+                    <h2 class="name">USER EMAIL</h2>
+                    <input class="company" type="text" name="email" value="" required><br><br>
+                    <label class="firstlabel">Your Email ID</label>  
+
+                
+                    
+                    <h2 class="name">New PASSWORD</h2>
+                    <input class="company" type="password" name="pass" id="pass" value="" required><br><br>
+                    <span id="passwords" class="text-danger font-weight-bold"></span>
+                    <label class="firstlabel">Your Password</label>  
+
+                   
+
+                    <button type="submit"><h3>CHANGE PASSWORD</h3></button>
+            
+            
+                </form>
+            </div>
+        </div>
+
+       
+        
+    
+    </body>
+    
+
+</html>

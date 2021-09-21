@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Home</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='assets/font/font-awesome.min.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='assets/font/font.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='assets/css/bootstrap.min.css')}}" media="screen" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='assets/css/style.css')}}" media="screen" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='assets/css/responsive.css')}}" media="screen" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='assets/css/jquery.bxslider.css')}}" media="screen" />
+</head>
+
+<body>
+<div class="body_wrapper">
+  <div class="center">
+    <div class="header_area">
+      <div class="logo floatleft"><a href="#"><img src="{{ url_for('static' , filename='images/onion.jpg')}}" width="100%" height="5%" alt="" /></a></div>
+      
+      <div class="social_plus_search floatright">
+        <div class="social">
+          <ul>
+            <li><a href="#" class="twitter"></a></li>
+            <li><a href="#" class="facebook"></a></li>
+            <li><a href="#" class="feed"></a></li>
+          </ul>
+        </div>
+        <div class="search">
+          <form action="#" method="post" id="search_form">
+            <input type="text" placeholder="Search news" id="s" />
+            <input type="submit" id="searchform" value="search" />
+            <input type="hidden" value="post" name="post_type" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="main_menu_area">
+      <ul id="nav">
+        <li><a href="/">HOME</a></li>
+        <li><a href="/adminlogin">ADMIN LOGIN</a></li>
+        <li><a href="/userreg">REGISTRATION</a></li>
+        <li><a href="/userlogin">LOGIN</a></li>
+        <li><a href="/about">ABOUT US</a></li>
+        <li><a href="/contact">CONTACT US</a></li>
+
+        <li><a href="/homesearchnews">SEARCH NEWS</a></li>
+      </ul>
+    </div>
+    <div class="slider_area">
+      <div class="slider">
+        <ul class="bxslider">
+          <li><img src="{{ url_for('static' , filename='images/1.jpg')}}" alt="" title="Slider caption text" /></li>
+          <li><img src="{{ url_for('static' , filename='images/2.jpg')}}" alt="" title="Slider caption text" /></li>
+          <li><img src="{{ url_for('static' , filename='images/3.jpg')}}" alt="" title="Slider caption text" /></li>
+        </ul>
+      </div>
+    </div>
+    <div class="content_area">
+      <div class="main_content floatleft">
+        <div class="left_coloum floatleft">
+          <div class="single_left_coloum_wrapper">
+            <h2 class="title">from   around   the   world</h2>
+            <a class="more" href="#">more</a>
+            <div class="single_left_coloum floatleft"> <img src="{{ url_for('static' , filename='images/single_featured.png')}}" alt="" />
+              <h3>"It is with conviction and clarity that I say that the Badals laid the foundation of the Centre's three black laws," </h3>
+              <p>said Sidhu addressing his first press conference after assuming the charge of the Punjab Pradesh Congress Committee.</p>
+              <a class="readmore" href="https://economictimes.indiatimes.com/news/politics">read more</a> </div>
+            <div class="single_left_coloum floatleft"> <img src="{{ url_for('static' , filename='images/banner-news-1.jpg')}}" alt="" />
+              <h3>Ethiopia to build local rival to Facebook, other platforms</h3>
+              <p>Ethiopia has been engulfed since last year in an armed conflict pitting the federal government against the Tigray People's Liberation Front (TPLF), which controls the Tigray region in the country's north.</p>
+              <a class="readmore" href="https://economictimes.indiatimes.com/topic/twitter-facebook-whatsapp">read more</a> </div>
+            <div class="single_left_coloum floatleft"> <img src="{{ url_for('static' , filename='images/banner-news-2.jpg')}}" alt="" />
+              <h3>Govt’s private-sector participation drive could increase efficiency, prosperity – Grindrod</h3>
+              <p>A port that runs efficiently “can bring prosperity all around”, says Grindrod Freight Services CEO Xolani Mbambo. South Africa’s major ports are, however, currently ranked close to the bottom of the list in terms of global competitiveness.</p>
+              <a class="readmore" href="https://www.engineeringnews.co.za/">read more</a> </div>
+          </div>
+          <div class="single_left_coloum_wrapper">
+            <h2 class="title">latest  articles</h2>
+            <a class="more" href="#">more</a>
+            <div class="single_left_coloum floatleft"> <img src="{{ url_for('static' , filename='images/usa.jpg')}}" alt="" />
+              <h3>U.S., U.K. and Australia announce new security partnership for Indo-Pacific</h3>
+              <p>A week before a meeting of Quad leaders in Washington DC, the Biden administration, on September 15, announced a new trilateral security partnership for the Indo-Pacific, between Australia, the U.K. and the U.S.</p>
+              <a class="readmore" href="https://www.thehindu.com/news/international/us-uk-australia-form-new-partnership/article36486642.ece">read more</a> </div>
+            <div class="single_left_coloum floatleft"> <img src="{{ url_for('static' , filename='images/banner-news-4.jpg')}}" alt="" />
+              <h3>Brookfield close to buying 2 NCR assets of Bharti Realty near Delhi airport and Gurgaon for about $1 billion</h3>
+              <p>Canada’s Brookfield, one of the world’s largest alternative asset managers and investors with $600 billion of assets under management.</p>
+              <a class="readmore" href="https://economictimes.indiatimes.com/industry/indl-goods/svs/construction">read more</a> </div>
+            <div class="single_left_coloum floatleft"> <img src="{{ url_for('static' , filename='images/banner.jpg')}}" alt="" />
+              <h3>Mac Miller’s Faces Coming to Streaming Services and Vinyl for the First Time</h3>
+              <p>Mac Miller’s 2014 mixtape Faces will come to streaming services and get released on vinyl next month. The mixtape, which Miller released for free on Mother’s Day 2014, will be available to stream on October 15.</p>
+              <a class="readmore" href="https://pitchfork.com/news/mac-miller-faces-coming-to-streaming-services-and-vinyl-for-the-first-time/">read more</a> </div>
+          </div>
+          <div class="single_left_coloum_wrapper gallery">
+            <h2 class="title">gallery</h2>
+            <a class="more" href="#">more</a> <img src="{{ url_for('static' , filename='images/right-1.jpg')}}" alt="" /> <img src="{{ url_for('static' , filename='images/right-2.jpg')}}" alt="" /> <img src="{{ url_for('static' , filename='images/right-3.jpg')}}" alt="" /> <img src="{{ url_for('static' , filename='images/right-4.jpg')}}" alt="" /> <img src="{{ url_for('static' , filename='images/right-5.jpg')}}" alt="" /> <img src="{{ url_for('static' , filename='images/top-left.jpg')}}" alt="" /> </div>
+          <div class="single_left_coloum_wrapper single_cat_left">
+            <h2 class="title">tech news</h2>
+            <a class="more" href="#">more</a>
+            <div class="single_cat_left_content floatleft">
+              <h3>Lorem ipsum dolor sit amet conse ctetur adipiscing elit </h3>
+              <p>Nulla quis lorem neque, mattis venenatis lectus. In interdum ullamcorper dolor ...interdum</p>
+              <p class="single_cat_left_content_meta">by <span>John Doe</span> |  29 comments</p>
+            </div>
+            <div class="single_cat_left_content floatleft">
+              <h3>Lorem ipsum dolor sit amet conse ctetur adipiscing elit </h3>
+              <p>Nulla quis lorem neque, mattis venenatis lectus. In interdum ullamcorper dolor ...interdum</p>
+              <p class="single_cat_left_content_meta">by <span>John Doe</span> |  29 comments</p>
+            </div>
+            <div class="single_cat_left_content floatleft">
+              <h3>Lorem ipsum dolor sit amet conse ctetur adipiscing elit </h3>
+              <p>Nulla quis lorem neque, mattis venenatis lectus. In interdum ullamcorper dolor ...interdum</p>
+              <p class="single_cat_left_content_meta">by <span>John Doe</span> |  29 comments</p>
+            </div>
+            <div class="single_cat_left_content floatleft">
+              <h3>Lorem ipsum dolor sit amet conse ctetur adipiscing elit </h3>
+              <p>Nulla quis lorem neque, mattis venenatis lectus. In interdum ullamcorper dolor ...interdum</p>
+              <p class="single_cat_left_content_meta">by <span>John Doe</span> |  29 comments</p>
+            </div>
+          </div>
+        </div>
+        <div class="right_coloum floatright">
+          <div class="single_right_coloum">
+            <h2 class="title">from the desk</h2>
+            <ul>
+              <li>
+                <div class="single_cat_right_content">
+                  <h3>TechCrunch is an American online newspaper focusing on high tech and startup companies. </h3>
+                  <p>It was founded in June 2005 by partners of Archimedes Ventures, Michael Arrington and Keith Teare, and was acquired in 2010 by AOL for $25 million</p>
+                  <p class="single_cat_right_content_meta"><a href="https://techcrunch.com/"><span>read more</span></a> 3 hours ago</p>
+                </div>
+              </li>
+              <li>
+                <div class="single_cat_right_content">
+                  <h3>The Wall Street Journal, also known as The Journal, is an American business-focused, English-language international daily newspaper</h3>
+                  <p>Our Summer Sale is on now. Make sense of all that's happened & all that's to come with WSJ. WSJ Offers Insights & Political Analysis Beyond Borders With a Global Impact. Join Now. Unlimited Access. Emerging Trends. WSJ Mobile & Tablet Apps. In-Depth Analysis.</p>
+                  <p class="single_cat_right_content_meta"><a href="https://store.wsj.com/shop/apac/in/wsjinss21/?trackingCode=aaqwghvn&cid=WSJ_RD_ALL_ACQ_NA"><span>read more</span></a> 3 hours ago</p>
+                </div>
+              </li>
+              <li>
+                <div class="single_cat_right_content">
+                  <h3>Stocks making the biggest moves after hours: Electronic Arts, Moderna and more</h3>
+                  <p>Shares of the video game company jumped more than 2% in after-hours trading after the company announced that its highly-anticipated game Battlefield 2041 is now slated for a worldwide launch on Nov. 19.</p>
+                  <p class="single_cat_right_content_meta"><a href="https://www.cnbc.com/finance/"><span>read more</span></a> 3 hours ago</p>
+                </div>
+              </li>
+            </ul>
+            <a class="popular_more" href="#">more</a> </div>
+          <div class="single_right_coloum">
+            <h2 class="title">editorial</h2>
+            <div class="single_cat_right_content editorial"> <img src="{{ url_for('static' , filename='images/editorial_img.png')}}" alt="" />
+              <h3>Lorem ipsum dolor sit amet con se cte tur adipiscing elit</h3>
+            </div>
+            <div class="single_cat_right_content editorial"> <img src="{{ url_for('static' , filename='images/bottom-left-1.jpg')}}" alt="" />
+              <h3>Lorem ipsum dolor sit amet con se cte tur adipiscing elit</h3>
+            </div>
+            <div class="single_cat_right_content editorial"> <img src="{{ url_for('static' , filename='images/bottom-left-2.jpg')}}" alt="" />
+              <h3>Lorem ipsum dolor sit amet con se cte tur adipiscing elit</h3>
+            </div>
+            <div class="single_cat_right_content editorial"> <img src="{{ url_for('static' , filename='images/banner-news-1.jpg')}}" alt="" />
+              <h3>Lorem ipsum dolor sit amet con se cte tur adipiscing elit</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar floatright">
+        <div class="single_sidebar"> <img src="{{ url_for('static' , filename='images/add1.png')}}" alt="" /> </div>
+        
+        <div class="single_sidebar">
+          <div class="popular">
+            <h2 class="title">Popular</h2>
+            <ul>
+              <li>
+                <div class="single_popular">
+                  <p>Sept 24th 2045</p>
+                  <h3>BBC News is an operational business division of the British Broadcasting Corporation responsible for the gathering and broadcasting of news and current affairs. <a href="https://www.bbc.com/news" class="readmore">Read More</a></h3>
+                </div>
+              </li>
+              <li>
+                <div class="single_popular">
+                  <p>Sept 24th 2045</p>
+                  <h3>Lorem ipsum dolor sit amet conse ctetur adipiscing elit <a href="https://www.bbc.com/news" class="readmore">Read More</a></h3>
+                </div>
+              </li>
+              <li>
+                <div class="single_popular">
+                  <p>Sept 24th 2045</p>
+                  <h3>TechCrunch is an American online newspaper focusing on high tech and startup companies <a href="https://techcrunch.com/" class="readmore">Read More</a></h3>
+                </div>
+              </li>
+              <li>
+                <div class="single_popular">
+                  <p>Sept 24th 2045</p>
+                  <h3>ARY News is a Pakistani news channel launched on 26 September 2004 with the name "ARY One World" until 2009 when it was rebranded as "ARY News". <a href="https://arynews.tv/" class="readmore">Read More</a></h3>
+                </div>
+              </li>
+              <li>
+                <div class="single_popular">
+                  <p>Sept 24th 2045</p>
+                  <h3>ABC News, or ABC News and Current Affairs, is a public news service produced by the Australian Broadcasting Corporation. Broadcasting within Australia and the rest of the world <a href="https://www.abc.net.au/news/" class="readmore">Read More</a></h3>
+                </div>
+              </li>
+            </ul>
+            <a class="popular_more">more</a> </div>
+        </div>
+        <div class="single_sidebar"> <img src="{{ url_for('static' , filename='images/add1.png')}}" alt="" /> </div>
+        <div class="single_sidebar">
+          <h2 class="title">ADD</h2>
+          <img src="{{ url_for('static' , filename='images/add2.png')}}" alt="" /> </div>
+      </div>
+    </div>
+    <div class="footer_top_area">
+      <div class="inner_footer_top"> <img src="{{ url_for('static' , filename='images/add3.png')}}" alt="" /> </div>
+    </div>
+    <div class="footer_bottom_area">
+      <div class="footer_menu">
+        <ul id="f_menu">
+          <li><a href="#">world news</a></li>
+          <li><a href="#">sports</a></li>
+          <li><a href="#">tech</a></li>
+          <li><a href="#">business</a></li>
+          <li><a href="#">Movies</a></li>
+          <li><a href="#">entertainment</a></li>
+          <li><a href="#">culture</a></li>
+          <li><a href="#">Books</a></li>
+          <li><a href="#">classifieds</a></li>
+          <li><a href="#">blogs</a></li>
+        </ul>
+      </div>
+      <div class="copyright_text">
+        <p>Copyright &copy; 2045 The News Reporter Inc. All rights reserved | Design by <a target="_blank" rel="nofollow" href="http://www.graphicsfuel.com/2045/10/wp-magazine-theme-template-psd/">Rafi MD</a></p>
+        <p>Trade marks and images used in the design are the copyright of their respective owners and are used for demo purposes only.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="{{ url_for('static' , filename='assets/js/jquery-min.js')}}"></script> 
+<script type="text/javascript" src="{{ url_for('static' , filename='assets/js/bootstrap.min.js')}}"></script> 
+<script type="text/javascript" src="{{ url_for('static' , filename='assets/js/jquery.bxslider.js')}}"></script> 
+<script type="text/javascript" src="{{ url_for('static' , filename='assets/js/selectnav.min.js')}}"></script> 
+<script type="text/javascript">
+selectnav('nav', {
+    label: '-Navigation-',
+    nested: true,
+    indent: '-'
+});
+selectnav('f_menu', {
+    label: '-Navigation-',
+    nested: true,
+    indent: '-'
+});
+$('.bxslider').bxSlider({
+    mode: 'fade',
+    captions: true
+});
+</script>
+</body>
+</html>
